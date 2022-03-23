@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/foundation.dart';
 import 'package:system_theme/system_theme.dart';
@@ -6,6 +8,30 @@ import 'package:flutter_acrylic/flutter_acrylic.dart' as flutter_acrylic;
 enum NavigationIndicators { sticky, end }
 
 class AppTheme extends ChangeNotifier {
+  late final  StreamSubscription<SystemAccentColor>  _themeStream;
+
+  AppTheme():super(){
+    _themeStream=SystemThemedWidget.ThemeStream().listen(changeAccent);
+    _systemDarkModeEnabled=SystemTheme.accentInstance.darkModeEnabled;
+  }
+
+
+  void changeAccent(SystemAccentColor event){
+     _color=AccentColor('normal', {
+      'darkest': event.darkest,
+      'darker': event.darker,
+      'dark': event.dark,
+      'normal': event.accent,
+      'light': event.light,
+      'lighter': event.lighter,
+      'lightest': event.lightest,
+    });
+     _systemDarkModeEnabled=event.darkModeEnabled;
+     notifyListeners();
+  }
+
+  bool _systemDarkModeEnabled=false;
+
   AccentColor _color = systemAccentColor;
   AccentColor get color => _color;
   set color(AccentColor color) {
@@ -19,6 +45,22 @@ class AppTheme extends ChangeNotifier {
     _mode = mode;
     notifyListeners();
   }
+
+
+
+
+  ThemeMode get currentMode {
+    if (mode==ThemeMode.system) {
+      switch (_systemDarkModeEnabled) {
+        case true:
+          return ThemeMode.dark;
+        case false:
+          return ThemeMode.light;
+      }
+    }
+    return _mode;
+  }
+
 
   PaneDisplayMode _displayMode = PaneDisplayMode.auto;
   PaneDisplayMode get displayMode => _displayMode;

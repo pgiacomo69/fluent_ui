@@ -32,7 +32,7 @@ bool get isDesktop {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  SystemTheme.accentInstance.load();
   if (kIsWeb ||
       [TargetPlatform.windows, TargetPlatform.android]
           .contains(defaultTargetPlatform)) {
@@ -62,15 +62,28 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  ThemeMode getCurrentThemeMode(Brightness brightness) {
+    switch (brightness) {
+      case Brightness.dark:
+         return ThemeMode.dark;
+
+      case Brightness.light:
+        return ThemeMode.light;
+
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => AppTheme(),
+      create: (_) {
+        return AppTheme();
+      } ,
       builder: (context, _) {
         final appTheme = context.watch<AppTheme>();
         return FluentApp(
           title: appTitle,
-          themeMode: appTheme.mode,
+          themeMode: appTheme.currentMode, //==ThemeMode.system ? getCurrentThemeMode(MediaQuery.of(context).platformBrightness) : appTheme.mode,
           debugShowCheckedModeBanner: false,
           initialRoute: '/',
           routes: {'/': (_) => const MyHomePage()},

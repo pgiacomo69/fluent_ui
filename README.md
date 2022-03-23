@@ -1,5 +1,6 @@
 <div>
   <h1 align="center">fluent_ui</h1>
+  <h1 align="center">Works Only whith fork:</h1>
   <p align="center" >
     <a title="Discord" href="https://discord.gg/674gpDQUVq">
       <img src="https://img.shields.io/discord/809528329337962516?label=discord&logo=discord" />
@@ -17,6 +18,10 @@
   <p align="center">
   Design beautiful native windows apps using Flutter
   </p>
+  <h1 align="center">Works Only with this&nbsp<a title="fork of system_theme package" href="https://github.com/pgiacomo69/system_theme/tree/sysReactive"></a></h1>
+   <p>
+     With this mod the App will react to system theme/dark mode switching. To test it, you have to clone the forked system_data package, and adjust its path in example's pubspec.yaml accordingly.
+    </p>
 </div>
 
 Unofficial implementation of Fluent UI for [Flutter](flutter.dev). It's written based on the [official documentation](https://docs.microsoft.com/en-us/windows/uwp/design/)

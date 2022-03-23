@@ -14,7 +14,8 @@ dependencies:
   fluent_ui:
     path: ../
   provider: ^6.0.1
-  system_theme: ^1.0.1
+  system_theme:
+    path: ../../system_theme
   window_manager: ^0.1.9
   flutter_acrylic: ^1.0.0+1
   url_strategy: ^0.2.0
