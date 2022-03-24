@@ -1,6 +1,5 @@
 <div>
   <h1 align="center">fluent_ui</h1>
-  <h1 align="center">Works Only whith fork:</h1>
   <p align="center" >
     <a title="Discord" href="https://discord.gg/674gpDQUVq">
       <img src="https://img.shields.io/discord/809528329337962516?label=discord&logo=discord" />
