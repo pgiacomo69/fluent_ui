@@ -18,7 +18,7 @@
   <p align="center">
   Design beautiful native windows apps using Flutter
   </p>
-  <h1 align="center">Works Only with this&nbsp<a title="fork of system_theme package" href="https://github.com/pgiacomo69/system_theme/tree/sysReactive"></a></h1>
+  <h1 align="center">Works Only with this&nbsp<a title="fork of system_theme package" href="https://github.com/pgiacomo69/system_theme/tree/sysReactive">fork of system_theme package</a></h1>
    <p>
      With this mod the App will react to system theme/dark mode switching. To test it, you have to clone the forked system_data package, and adjust its path in example's pubspec.yaml accordingly.
     </p>

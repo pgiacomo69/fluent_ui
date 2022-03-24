@@ -62,16 +62,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  ThemeMode getCurrentThemeMode(Brightness brightness) {
-    switch (brightness) {
-      case Brightness.dark:
-         return ThemeMode.dark;
-
-      case Brightness.light:
-        return ThemeMode.light;
-
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +73,7 @@ class MyApp extends StatelessWidget {
         final appTheme = context.watch<AppTheme>();
         return FluentApp(
           title: appTitle,
-          themeMode: appTheme.currentMode, //==ThemeMode.system ? getCurrentThemeMode(MediaQuery.of(context).platformBrightness) : appTheme.mode,
+          themeMode: appTheme.currentMode,
           debugShowCheckedModeBanner: false,
           initialRoute: '/',
           routes: {'/': (_) => const MyHomePage()},
